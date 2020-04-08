@@ -7,7 +7,7 @@
     <div class="post-meta">
       {{ if .Date | default nil }}
         <span class="post-date">
-          {{ .Date.Format ($.Site.Params.DateFormatSingle | default "2006-01-02") }}
+          {{ .PublishDate.Format ($.Site.Params.DateFormatSingle | default "02-01-2006") }}
         </span>
 
         {{ if eq .Type $contentTypeName }}
@@ -19,7 +19,7 @@
 
       {{ with .Params.Author }}<span class="post-author">— {{ $.Site.Params.WrittenBy | default "Written by" }} {{ . }}</span>{{ end }}
       {{ if $.Site.Params.ShowReadingTime }}
-        <span class="post-read-time">— {{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span>
+        <span class="post-read-time">— ({{ .ReadingTime }} {{ $.Site.Params.MinuteReadingTime | default "min read" }})</span>
       {{ end }}
     </div>
 
